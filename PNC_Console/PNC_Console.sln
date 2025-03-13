@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PNC_Console", "PNC_Console.csproj", "{13FCAE33-D895-4D12-9BE1-918297317B4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13FCAE33-D895-4D12-9BE1-918297317B4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13FCAE33-D895-4D12-9BE1-918297317B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13FCAE33-D895-4D12-9BE1-918297317B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13FCAE33-D895-4D12-9BE1-918297317B4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {019C9D4F-5134-43FB-A8CE-9012711591A5}
+	EndGlobalSection
+EndGlobal
