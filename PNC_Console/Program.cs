@@ -152,7 +152,6 @@ namespace PNC_Console
 
         }
 
-
         static void AddHumbers(int[] numbers)
         {
             var total = 0;

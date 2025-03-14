@@ -1,15 +1,14 @@
 ﻿<Properties StartupConfiguration="{13FCAE33-D895-4D12-9BE1-918297317B4B}|Default">
   <MonoDevelop.Ide.ItemProperties.PNC__Console PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
-    <Files>
-      <File FileName="Program.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench ActiveDocument="PersonalNumberLibrary/CharacterIndex.cs">
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="PNC_Console" expanded="True">
             <Node name="PNC_Console" expanded="True">
-              <Node name="Program.cs" selected="True" />
+              <Node name="PersonalNumberLibrary" expanded="True">
+                <Node name="CharacterIndex.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
