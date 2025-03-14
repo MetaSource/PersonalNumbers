@@ -4,6 +4,11 @@ using System.Linq;
 
 namespace PNC_Console
 {
+    public static class MASTER_NUMBERS
+    {
+        public static int[] Values {  get { return new int[] { 11, 22, 33, 44 }; } }
+    }
+
     public class LifeLessonNumber
     {
         public int BaseValue { get; set; }
