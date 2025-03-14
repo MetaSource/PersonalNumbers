@@ -20,7 +20,7 @@ namespace PNC_Console
 
         public override string ToString()
         {
-            if (Value != 22 || Value != 33 || Value != 11)
+            if (Value != 22 || Value != 33 || Value != 11 || Value!= 44)
             {
                 return $"{BaseValue}/{Value}";
             }
@@ -256,7 +256,7 @@ namespace PNC_Console
         /// <returns></returns>
         public static int Reduce(int number)
         {
-            var masterNumbers = new int[] { 11, 22, 33 };
+            var masterNumbers = new int[] { 11, 22, 33, 44 };
 
             Console.WriteLine($"   reducing: {number}");
 
