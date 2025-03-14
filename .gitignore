@@ -53,4 +53,15 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+
 .DS_Store

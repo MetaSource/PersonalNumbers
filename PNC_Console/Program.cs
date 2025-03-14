@@ -4,12 +4,30 @@ using System.Linq;
 
 namespace PNC_Console
 {
+    public class LifeLessonNumber
+    {
+        public int BaseValue { get; set; }
+
+        /// <summary>
+        /// Value of life lesson number 
+        /// </summary>
+        public int Value { get; set; }
+
+        public override string ToString()
+        {
+            if (Value != 22 || Value != 33 || Value != 11)
+            {
+                return $"{BaseValue}/{Value}";
+            }
+            return $"{Value}";
+        }
+    }
 
     class Program
     {
         static int Options()
         {
-            Console.WriteLine("1 for personal number, 2 for birthyear, 3 for combined");
+            Console.WriteLine("1 for personal number, 2 for birthyear, 3 for (Life Lesson) combined");
             var option = Console.ReadLine();
             return int.Parse(option);
         }
@@ -36,7 +54,7 @@ namespace PNC_Console
                         Year();
                         break;
                     case 3:
-                        Console.WriteLine("not available");
+                        LifeLessonNumber();
                         break;
                     default:
                         PersonalNumber();
@@ -64,6 +82,82 @@ namespace PNC_Console
             Console.WriteLine($"= {total}");
         }
 
+        /// <summary>
+        /// Option for Calculating life sesson number
+        /// </summary>
+        static void LifeLessonNumber()
+        {
+            Console.WriteLine("Enter Full Birthdate (mm/dd/yyyy):");
+            var yearString = Console.ReadLine();
+
+            // Console.WriteLine($"= {total}");
+            CalculateLifeLessonNumber(yearString);
+        }
+
+        /// <summary>
+        /// Caclulates life lesson number which is based on ONLY birth DATE
+        /// </summary>
+        /// <param name="fulldate"></param>
+        static void CalculateLifeLessonNumber(string fulldate)
+        {
+            var separated = fulldate.Split("/");
+
+            var fullstring = string.Empty;
+
+            foreach (var section in separated)
+            {
+                fullstring = fullstring + section;
+            }
+
+            Console.WriteLine(fullstring);
+
+            AddMonthDayYear(int.Parse(separated[0]), int.Parse(separated[1]), int.Parse(separated[2]));         
+        }
+
+
+        /// <summary>
+        /// Will calcualte the total number for lifelesson calculations;
+        /// only reducing after day, month and year have been totaled first 
+        /// </summary>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
+        /// <param name="year"></param>
+        static void AddMonthDayYear(int month, int day, int year)
+        {
+            var yeartotal = ReduceBirthYear(year);
+            var total = month + day + yeartotal;
+            Console.WriteLine($"{month} + {day} + {yeartotal}({year}) = {total}");
+            var reduced = Reduce(total);
+            var str = $"{total}/{reduced}";
+            Console.WriteLine($"You are a life lesson number {reduced} ({str})");
+        }
+
+        /// <summary>
+        /// totals and arbirary set of numbers in an array 
+        /// </summary>
+        /// <param name="numbers"></param>
+        static void AddNumbers(string[] numbers)
+        {
+            var total = 0;
+            foreach (var section in numbers)
+            {
+                total = total + int.Parse(section);
+            }
+            Console.WriteLine(total);
+
+        }
+
+
+        static void AddHumbers(int[] numbers)
+        {
+            var total = 0;
+            foreach (var section in numbers)
+            {
+                total = total + section;
+            }
+            Console.WriteLine(total);
+        }
+
         static void CalculatePersonalNumber(string name)
         {
 
@@ -84,6 +178,7 @@ namespace PNC_Console
             var newName = string.Join("", name.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries));
 
             newName = newName.ToLower();
+
             Console.WriteLine(newName);
             foreach (var letter in newName)
             {
@@ -140,9 +235,12 @@ namespace PNC_Console
             var tens = (year / 10) % 10;
             var ones = year % 10;
 
-            Console.WriteLine($"{thousands} + {hundreds} + {tens} + {ones}");
+            var total =  thousands + hundreds + tens + ones;
+            Console.WriteLine($"{thousands} + {hundreds} + {tens} + {ones} = {total}" +
+                $"" +
+                $"");
 
-            return thousands + hundreds + tens + ones;
+            return total;
         }
 
 
