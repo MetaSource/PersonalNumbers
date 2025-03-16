@@ -63,5 +63,6 @@ nunit-*.xml
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+/.vs/
 
 .DS_Store

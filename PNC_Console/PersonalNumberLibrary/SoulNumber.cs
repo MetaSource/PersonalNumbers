@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 namespace PNC_Console.PersonalNumberLibrary
 {
     public class SoulNumber : IPersonalNumber 
@@ -7,19 +9,33 @@ namespace PNC_Console.PersonalNumberLibrary
 
         public SoulNumber(string name)
         {
-            this.name = name;
+            this.name = name.RemoveWhiteSpaceToLower();
         }
 
         public string Description { get { return "The soul number comes from adding vowels " +
-                    "into the name using the character number index"; } }
+                    "in the full birth name"; } }
 
-        public void Calculate()
+        public int Calculate()
         {
+           
             var convertedValues = CharacterIndex.ExtactVowelValues(name);
+            convertedValues.PrintAdditionSequence();
+            //Add values then reduce
+            var baseNumber = convertedValues.Sum();
+            var reduced = Reducer.Reduce(baseNumber);
 
-            //Add convertedValues
-            //Reduce total 
+            if(baseNumber != reduced)
+            {
+                Console.WriteLine($"Soul Number {reduced} ({baseNumber}/{reduced})");
+            }
+            {
+                Console.WriteLine($"Soul Number {reduced}");
+            }
+
+            return reduced;
         }
+
+       
 
     }
 }

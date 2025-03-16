@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using PNC_Console.PersonalNumberLibrary;
 
 namespace PNC_Console
 {
@@ -32,7 +33,7 @@ namespace PNC_Console
     {
         static int Options()
         {
-            Console.WriteLine("1 for personal number, 2 for birthyear, 3 for (Life Lesson) combined");
+            Console.WriteLine("1 for personal number, 2 for birthyear, 3 for (Life Lesson) combined, 4 for soul number");
             var option = Console.ReadLine();
             return int.Parse(option);
         }
@@ -61,6 +62,9 @@ namespace PNC_Console
                     case 3:
                         LifeLessonNumber();
                         break;
+                    case 4:
+                        SoulNumber();
+                        break;
                     default:
                         PersonalNumber();
                         break;
@@ -70,6 +74,13 @@ namespace PNC_Console
                 Console.ReadLine();
             }
         }
+
+        static void SoulNumber() {
+            Console.WriteLine("Enter your full birth name:");
+            var name = Console.ReadLine();
+            new SoulNumber(name).Calculate();
+        }
+
 
         static void PersonalNumber()
         {

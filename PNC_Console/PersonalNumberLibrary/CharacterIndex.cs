@@ -26,7 +26,12 @@ namespace PNC_Console.PersonalNumberLibrary
             return (Vowels.Contains(letter));
         }
 
-        public static int[] ExtactVowelValues(string word)
+        /// <summary>
+        /// will take a word and convert its vowles into the corresponding number array 
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
+        public static List<int> ExtactVowelValues(string word)
         {
             var convertedValues = new List<int> { };
 
@@ -38,8 +43,71 @@ namespace PNC_Console.PersonalNumberLibrary
                 }
             }
 
-            return convertedValues.ToArray();
+            if (IsYVowel(word))
+            {
+                convertedValues.Add(Values['y']);
+            }
+
+            if (IsWVowel(word))
+            {
+                convertedValues.Add(Values['w']);
+            }
+
+            return convertedValues;
         }
-           
+
+        public static List<int> ExtractCosonantValues(string words)
+        {
+            var convertedValues = new List<int> { };
+
+            return convertedValues;
+        }
+
+        private static bool IsWVowel(string name)
+        {
+            name = name.ToLower();
+
+            // Find the first occurrence of 'w'
+            int wIndex = name.IndexOf('w');
+
+            if (wIndex == -1)
+                return false; // No 'W' found in the name
+
+            // 'W' is a vowel if preceded by 'D' or 'G'
+            if (wIndex > 0 && (name[wIndex - 1] == 'd' || name[wIndex - 1] == 'g'))
+            {
+                return true; // "W" is acting as a vowel
+            }
+
+            return false; // Otherwise, it's a consonant
+        }
+
+        private static bool IsYVowel(string name)
+        {
+            name = name.ToLower();
+
+            // Find positions of 'y' in the name
+            int yIndex = name.IndexOf('y');
+
+            if (yIndex == -1)
+                return false; // No 'Y' found in the name
+
+            // 'Y' is a consonant if it is at the start of the name
+            if (yIndex == 0)
+                return false;
+
+            // Define vowels
+            string vowels = "aeiou";
+
+            // Check if 'Y' is surrounded by consonants (acts as a vowel)
+            if ((yIndex > 0 && !vowels.Contains(name[yIndex - 1])) &&
+                (yIndex < name.Length - 1 && !vowels.Contains(name[yIndex + 1])))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }
