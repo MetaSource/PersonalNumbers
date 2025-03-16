@@ -27,6 +27,28 @@ namespace PNC_Console.PersonalNumberLibrary
         }
 
         /// <summary>
+        /// TODO 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="word"></param>
+        /// <returns></returns>
+        public static bool IsVowelY(int index, string word)
+        {
+            return false; 
+        }
+
+        /// <summary>
+        /// TODO 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="word"></param>
+        /// <returns></returns>
+        public static bool IsVowelW(int index, string word)
+        {
+            return false; 
+        }
+
+        /// <summary>
         /// will take a word and convert its vowles into the corresponding number array 
         /// </summary>
         /// <param name="word"></param>
@@ -60,6 +82,10 @@ namespace PNC_Console.PersonalNumberLibrary
         {
             var convertedValues = new List<int> { };
 
+            
+            //Edge cases
+
+            
             return convertedValues;
         }
 
@@ -76,18 +102,27 @@ namespace PNC_Console.PersonalNumberLibrary
             // 'W' is a vowel if preceded by 'D' or 'G'
             if (wIndex > 0 && (name[wIndex - 1] == 'd' || name[wIndex - 1] == 'g'))
             {
+                Console.WriteLine("Determined W vowel");
                 return true; // "W" is acting as a vowel
             }
+
 
             return false; // Otherwise, it's a consonant
         }
 
-        private static bool IsYVowel(string name)
+        public static bool  IsYVowel(string name)
         {
             name = name.ToLower();
 
             // Find positions of 'y' in the name
             int yIndex = name.IndexOf('y');
+
+            return IsYVowel(yIndex, name);
+        }
+
+        public static bool IsYVowel(int yIndex, string name)
+        {
+            name = name.ToLower();
 
             if (yIndex == -1)
                 return false; // No 'Y' found in the name
@@ -103,6 +138,7 @@ namespace PNC_Console.PersonalNumberLibrary
             if ((yIndex > 0 && !vowels.Contains(name[yIndex - 1])) &&
                 (yIndex < name.Length - 1 && !vowels.Contains(name[yIndex + 1])))
             {
+                Console.WriteLine("determined Y vowel");
                 return true;
             }
 
